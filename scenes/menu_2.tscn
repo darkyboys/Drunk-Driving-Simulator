@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm8ipoifiae65"]
+
+[ext_resource type="Texture2D" uid="uid://dmo0kontsvwo5" path="res://assets/hdri/polyhaven/sunny_country_road_4k.hdr" id="1_40eju"]
+[ext_resource type="PackedScene" uid="uid://4ijok44q7aai" path="res://assets/models/otherCC0/models/cars/free_concept_car_004_-_public_domain_cc0/scene.gltf" id="2_nc8j6"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qd314"]
+panorama = ExtResource("1_40eju")
+
+[sub_resource type="Sky" id="Sky_rqcyv"]
+sky_material = SubResource("PanoramaSkyMaterial_qd314")
+
+[sub_resource type="Environment" id="Environment_40eju"]
+background_mode = 2
+sky = SubResource("Sky_rqcyv")
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
+[node name="menu2" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_40eju")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_nc8j6")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 16.182, -1.49012e-08, -0.29534)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.991032, -3.63345e-09, -0.133623, -0.0499825, 0.927406, 0.370702, 0.123923, 0.374056, -0.919089, 16.0979, 2.47766, -5.54955)

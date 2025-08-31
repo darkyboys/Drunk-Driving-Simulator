@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dimurd6tqpsfm"]
+
+[ext_resource type="Texture2D" uid="uid://cgdk72qqmq6qu" path="res://addons/drunk-driving-simulator-prototype-blocks/raw/gray.png" id="1_o8xpg"]
+
+[resource]
+albedo_texture = ExtResource("1_o8xpg")
+roughness = 0.5
+uv1_triplanar = true

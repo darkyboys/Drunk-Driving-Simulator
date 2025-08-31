@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://5arskqukhxsk"]
+
+[ext_resource type="Script" uid="uid://cqvqhikkv252q" path="res://scripts/cars/global/camera_3d.gd" id="1_pn1ox"]
+
+[sub_resource type="Curve3D" id="Curve3D_3s0uc"]
+closed = true
+_data = {
+"points": PackedVector3Array(0.539632, 0, 0.0107665, -0.539632, 0, -0.0107665, -0.037682, 0, -4.91611, 1.52316, 0, -1.38208, -1.52316, 0, 1.38208, -3.03242, 0, -3.58032, -0.0152936, 0, -1.17921, 0.0152936, 0, 1.17921, -4.44661, 0, -0.103091, -0.947014, 0, -1.07144, 0.947014, 0, 1.07144, -3.61474, 0, 3.34086, -1.8663, 0, -0.0606861, 1.8663, 0, 0.0606861, -0.370431, 0, 5.05452, -0.510421, 0, 1.04202, 0.510421, 0, -1.04202, 3.12343, 0, 3.42405, 0.0960126, 0, 2.08723, -0.0960126, 0, -2.08723, 4.07177, 0, -0.103091, 1.22259, 0, 1.27816, -1.22259, 0, -1.27816, 2.87387, 0, -3.53041),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[node name="Orbit Camera" type="Node3D"]
+
+[node name="Orbit" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78205, 0.135946)
+curve = SubResource("Curve3D_3s0uc")
+
+[node name="OrbitFollower" type="PathFollow3D" parent="Orbit"]
+transform = Transform3D(0.0199474, 0, 0.999792, 0, 1, 0, -0.999792, 0, 0.0199474, -0.037682, 0, -4.91611)
+
+[node name="Camera3D" type="Camera3D" parent="Orbit/OrbitFollower"]
+transform = Transform3D(-0.0199477, -0.435804, 0.89982, -3.81068e-08, 0.899999, 0.435891, -0.999801, 0.00869498, -0.0179529, -0.00637054, -0.00840664, 0.0378166)
+script = ExtResource("1_pn1ox")
+
+[node name="Timer" type="Timer" parent="Orbit/OrbitFollower/Camera3D"]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="Orbit/OrbitFollower/Camera3D/Timer" to="Orbit/OrbitFollower/Camera3D" method="_on_timer_timeout"]

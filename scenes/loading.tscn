@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://tirc0gy6lntw"]
+
+[ext_resource type="Script" uid="uid://cqj8pgf7o4seu" path="res://scripts/loading.gd" id="1_yc7uc"]
+[ext_resource type="Texture2D" uid="uid://b38pi4psqlfj7" path="res://assets/drawables/imgs/00.jpg" id="2_dhqfv"]
+
+[node name="Loading" type="Node2D"]
+script = ExtResource("1_yc7uc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.5, 1.26562)
+texture = ExtResource("2_dhqfv")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 188.0
+offset_top = 562.0
+offset_right = 1055.0
+offset_bottom = 589.0
+
+[node name="Timer" type="Timer" parent="ProgressBar"]
+wait_time = 0.1
+
+[connection signal="timeout" from="ProgressBar/Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qdovqwjqty6g"
+path="res://.godot/imported/Shenzhen Nightlife.mp3-c921357cb0234fb2b2103fd94b1eff51.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Shenzhen Nightlife.mp3"
+dest_files=["res://.godot/imported/Shenzhen Nightlife.mp3-c921357cb0234fb2b2103fd94b1eff51.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

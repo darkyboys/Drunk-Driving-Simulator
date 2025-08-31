@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chfjq0qbuc7ke"
+path="res://.godot/imported/Tank Soundd.mp3-209dd08b063c0fd6906d47cc8e26cb70.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cars/Tank Soundd.mp3"
+dest_files=["res://.godot/imported/Tank Soundd.mp3-209dd08b063c0fd6906d47cc8e26cb70.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

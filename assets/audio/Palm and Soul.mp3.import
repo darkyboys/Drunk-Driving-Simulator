@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqlen77gf8va7"
+path="res://.godot/imported/Palm and Soul.mp3-b20d5e0f442e3278d2a860029bccc200.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Palm and Soul.mp3"
+dest_files=["res://.godot/imported/Palm and Soul.mp3-b20d5e0f442e3278d2a860029bccc200.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

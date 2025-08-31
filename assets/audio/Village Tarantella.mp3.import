@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bptk4fwyjnk06"
+path="res://.godot/imported/Village Tarantella.mp3-25ffdf2949156f096df593fcea504152.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Village Tarantella.mp3"
+dest_files=["res://.godot/imported/Village Tarantella.mp3-25ffdf2949156f096df593fcea504152.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

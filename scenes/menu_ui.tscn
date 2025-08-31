@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbf7k8fwn8ba0"]
+
+[ext_resource type="Texture2D" uid="uid://d07dcfyr2hpkq" path="res://assets/drawables/maps/Prototype.png" id="1_86ygs"]
+[ext_resource type="Script" uid="uid://b56huimosi0h" path="res://scripts/menu_ui.gd" id="1_b5e6c"]
+[ext_resource type="PackedScene" uid="uid://tirc0gy6lntw" path="res://scenes/loading.tscn" id="3_tner2"]
+
+[node name="Menu UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b5e6c")
+
+[node name="Select map" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 154.0
+offset_top = 94.0
+offset_right = 966.0
+offset_bottom = 533.0
+color = Color(0, 0, 0, 0.611765)
+
+[node name="Label" type="Label" parent="Select map"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 8.0
+offset_right = 444.0
+offset_bottom = 31.0
+text = "Select A Map!"
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Select map"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 42.0
+offset_right = 800.0
+offset_bottom = 425.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Select map/ScrollContainer2"]
+clip_contents = true
+layout_mode = 2
+
+[node name="Prototype" type="Button" parent="Select map/ScrollContainer2/HBoxContainer"]
+layout_mode = 2
+text = "Prototype"
+icon = ExtResource("1_86ygs")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="exit" type="Button" parent="Select map"]
+layout_mode = 0
+offset_left = 775.0
+offset_top = 4.0
+offset_right = 806.0
+offset_bottom = 35.0
+text = "-"
+
+[node name="Loading" parent="." instance=ExtResource("3_tner2")]
+visible = false
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_right = 190.0
+offset_bottom = 75.0
+text = "Start"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 16.0
+offset_right = 917.0
+offset_bottom = 65.0
+text = "This is the Developers Beta version means this is not ready for normal players! 
+This is only meant for developers who are familiar with the godot 4 game engine."
+
+[connection signal="button_down" from="Select map/ScrollContainer2/HBoxContainer/Prototype" to="." method="_map_prototype_button_down"]
+[connection signal="button_down" from="Select map/exit" to="." method="_on_exit_request"]
+[connection signal="button_down" from="Start" to="." method="_on_start_button_down"]
