@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://tj3tsnaxyeco"]
+
+[ext_resource type="Texture2D" uid="uid://bfrhu5i6yscg7" path="res://assets/materials/raw/polyhaven/asphalt_02_diff_1k/asphalt_02_diff_1k.png" id="1_1nnmn"]
+[ext_resource type="Texture2D" uid="uid://23bg1q8gam6n" path="res://assets/materials/raw/polyhaven/asphalt_02_diff_1k/asphalt_02_disp_1k.png" id="2_l3osv"]
+[ext_resource type="Texture2D" uid="uid://c28q4kfc3aamc" path="res://assets/materials/raw/polyhaven/asphalt_02_diff_1k/asphalt_02_nor_gl_1k.png" id="3_p2m3o"]
+[ext_resource type="PackedScene" uid="uid://cm2ju28vn70rb" path="res://scenes/cars/v_dot.tscn" id="4_l3osv"]
+[ext_resource type="PackedScene" uid="uid://d7imc60aj5jd" path="res://addons/drunk-driving-simulator-broken-objects/cardboard_box.tscn" id="6_30y7s"]
+[ext_resource type="PackedScene" uid="uid://dsner722e1act" path="res://addons/drunk-driving-simulator-broken-objects/barrel.tscn" id="6_vkpj2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l3osv"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_p2m3o"]
+sky_material = SubResource("ProceduralSkyMaterial_l3osv")
+
+[sub_resource type="Environment" id="Environment_vkpj2"]
+background_mode = 2
+sky = SubResource("Sky_p2m3o")
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkpj2"]
+albedo_texture = ExtResource("1_1nnmn")
+normal_enabled = true
+normal_texture = ExtResource("3_p2m3o")
+heightmap_enabled = true
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("2_l3osv")
+uv1_scale = Vector3(20, 20, 20)
+
+[node name="3D Lab" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_energy = 4.009
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vkpj2")
+
+[node name="surface" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(123, 1, 127)
+material = SubResource("StandardMaterial3D_vkpj2")
+
+[node name="VDot" parent="." instance=ExtResource("4_l3osv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.206617, 0.833984, -1.13446)
+
+[node name="Barrel7" parent="." instance=ExtResource("6_vkpj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74112, 0.506614, 3.9749)
+
+[node name="Barrel8" parent="." instance=ExtResource("6_vkpj2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25888, 1.50661, 3.9749)
+
+[node name="cardboard-box" parent="." instance=ExtResource("6_30y7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48679, 0.506755, 5.10049)
+
+[node name="cardboard-box2" parent="." instance=ExtResource("6_30y7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.356101, 0.922745, 5.10049)
+
+[node name="cardboard-box7" parent="." instance=ExtResource("6_30y7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.356101, 0.922745, 5.10049)
+
+[node name="cardboard-box3" parent="." instance=ExtResource("6_30y7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96486, 0.622056, 5.10049)
+
+[node name="cardboard-box4" parent="." instance=ExtResource("6_30y7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0337262, 1.62206, 5.10049)
+
+[node name="cardboard-box5" parent="." instance=ExtResource("6_30y7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.12111, 1.1304, 5.10049)
+
+[node name="cardboard-box6" parent="." instance=ExtResource("6_30y7s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46898, 1.1304, 5.10049)

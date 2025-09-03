@@ -19,6 +19,7 @@ boot_splash/image="uid://ck8semfwclnbf"
 config/icon="uid://evwbebd6mcdb"
 config/macos_native_icon="res://application/OSX/drawable/img/game-icon.icns"
 config/windows_native_icon="res://application/Win32/drawable/img/game-icon.ico"
+boot_splash/minimum_display_time=3000
 
 [display]
 
