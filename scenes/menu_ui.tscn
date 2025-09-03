@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbf7k8fwn8ba0"]
+[gd_scene load_steps=5 format=3 uid="uid://dbf7k8fwn8ba0"]
 
 [ext_resource type="Texture2D" uid="uid://d07dcfyr2hpkq" path="res://assets/drawables/maps/Prototype.png" id="1_86ygs"]
 [ext_resource type="Script" uid="uid://b56huimosi0h" path="res://scripts/menu_ui.gd" id="1_b5e6c"]
+[ext_resource type="Texture2D" uid="uid://bug4addkurnlp" path="res://assets/drawables/maps/3d Lab.png" id="3_3y6qt"]
 [ext_resource type="PackedScene" uid="uid://tirc0gy6lntw" path="res://scenes/loading.tscn" id="3_tner2"]
 
 [node name="Menu UI" type="Control"]
@@ -37,14 +38,25 @@ offset_top = 42.0
 offset_right = 800.0
 offset_bottom = 425.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Select map/ScrollContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Select map/ScrollContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Select map/ScrollContainer2/VBoxContainer"]
 clip_contents = true
 layout_mode = 2
 
-[node name="Prototype" type="Button" parent="Select map/ScrollContainer2/HBoxContainer"]
+[node name="Prototype" type="Button" parent="Select map/ScrollContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Prototype"
 icon = ExtResource("1_86ygs")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="3d Lab" type="Button" parent="Select map/ScrollContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "3d Lab"
+icon = ExtResource("3_3y6qt")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
@@ -75,6 +87,7 @@ offset_bottom = 65.0
 text = "This is the Developers Beta version means this is not ready for normal players! 
 This is only meant for developers who are familiar with the godot 4 game engine."
 
-[connection signal="button_down" from="Select map/ScrollContainer2/HBoxContainer/Prototype" to="." method="_map_prototype_button_down"]
+[connection signal="button_down" from="Select map/ScrollContainer2/VBoxContainer/HBoxContainer/Prototype" to="." method="_map_prototype_button_down"]
+[connection signal="button_down" from="Select map/ScrollContainer2/VBoxContainer/HBoxContainer/3d Lab" to="." method="_on_3d_lab_button_down"]
 [connection signal="button_down" from="Select map/exit" to="." method="_on_exit_request"]
 [connection signal="button_down" from="Start" to="." method="_on_start_button_down"]
